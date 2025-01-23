@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  .font-outline-2 {
+    -webkit-text-stroke: 2px #1badff;
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 4px #1badff;
+  }
+  /* html {
+      @apply text-purple-700;
+    } */
+}
+body {
+  cursor: url("/assets/pointer.png"), auto;
+}
+
+@layer components {
+  .home-header {
+    @apply font-subrayada text-xl md:text-3xl text-center font-semibold;
+  }
+}
