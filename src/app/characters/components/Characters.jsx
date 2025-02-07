@@ -37,22 +37,27 @@ export default function Characters({ data }) {
     >
       <div className="hidden lg:block lg:col-span-1"></div>
       <AnimatePresence mode="wait">
-        <motion.div
-          className="col-span-1 md:col-span-2 relative flex justify-center items-center"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <motion.img
-            src={image.src}
-            alt="Character Image"
-            width={100}
-            height={400}
-            className={`object-contain p-4 transform transition-all duration-700 ease-in-out scale-110 ${
-              name === "Maui" ? "w-1/2 md:w-3/4" : "w-1/3 md:w-1/2"
-            } ${name === "Pua" ? "w-1/2 md:w-3/4" : "w-1/3 md:w-1/2"}`}
-          />
+      <motion.div
+  className="col-span-1 md:col-span-2 relative flex justify-center items-center"
+  initial={{ scale: 0.9, opacity: 0 }} // Initial state (hidden and slightly scaled down)
+  animate={{ scale: 1, opacity: 1 }}   // Animate to full size and fully visible
+  exit={{ scale: 0.9, opacity: 0 }}    // Exit animation (scale down and fade out)
+  transition={{ duration: 0.5, ease: "easeInOut" }} // Smooth transition
+>
+  <motion.img
+    src={image.src}
+    alt="Character Image"
+    width={100}
+    height={400}
+    className={`object-contain p-4 transform transition-all duration-700 ease-in-out scale-110 ${
+      name === "Maui" ? "w-1/2 md:w-3/4" : "w-1/3 md:w-1/2"
+    } ${name === "Pua" ? "w-1/2 md:w-3/4" : "w-1/3 md:w-1/2"}`}
+    initial={{ opacity: 0 }} // Start with the image hidden
+    animate={{ opacity: 1 }} // Fade in the image
+    exit={{ opacity: 0 }}    // Fade out the image
+    transition={{ duration: 1, delay: 1 }} // Add a slight delay for smoother transitions
+  />
+
           <motion.img
             src={UnderWave.src}
             alt="Under Wave"
